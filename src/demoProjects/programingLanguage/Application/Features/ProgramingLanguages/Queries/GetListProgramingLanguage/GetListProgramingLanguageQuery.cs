@@ -29,11 +29,11 @@ namespace Application.Features.ProgramingLanguages.Queries.GetListProgramingLang
 
             public async Task<ProgramingLanguageListModel> Handle(GetListProgramingLanguageQuery request, CancellationToken cancellationToken)
             {
-                IPaginate<ProgramingLanguage> brands = await _programingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
+                IPaginate<ProgramingLanguage> programingLanguages = await _programingLanguageRepository.GetListAsync(index: request.PageRequest.Page, size: request.PageRequest.PageSize);
 
-                ProgramingLanguageListModel mappedBrandListModel = _mapper.Map<ProgramingLanguageListModel>(brands);
+                ProgramingLanguageListModel mappedProgramingLanguageListModel = _mapper.Map<ProgramingLanguageListModel>(programingLanguages);
 
-                return mappedBrandListModel;
+                return mappedProgramingLanguageListModel;
             }
         }
     }

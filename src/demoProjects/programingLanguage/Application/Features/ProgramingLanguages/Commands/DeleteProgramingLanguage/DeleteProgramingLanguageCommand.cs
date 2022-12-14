@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgramingLanguages.Commands.DeleteProgramingLanguage
 {
-    public partial class DeleteProgramingLanguageCommand : IRequest<DeletedProgramingLanguageDto>
+    public class DeleteProgramingLanguageCommand : IRequest<DeletedProgramingLanguageDto>
     {
         public int Id { get; set; }
         public class DeleteProgramingLanguageCommandHandler : IRequestHandler<DeleteProgramingLanguageCommand, DeletedProgramingLanguageDto>

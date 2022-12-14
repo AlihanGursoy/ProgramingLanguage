@@ -13,6 +13,7 @@ namespace Persistence.Contexts
     {
         protected IConfiguration Configuration { get; set; }
         public DbSet<ProgramingLanguage> ProgramingLanguages { get; set; }
+        public DbSet<Technology> Technologies { get; set; }
 
 
         public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
@@ -37,8 +38,11 @@ namespace Persistence.Contexts
             });
 
 
-            ProgramingLanguage[] programingLanguagesSeeds = { new(1, "C#"), new(2, "Python") };
+            ProgramingLanguage[] programingLanguagesSeeds = { new(1, "C#"), new(2, "Python"), new(3, "JavaScript") };
             modelBuilder.Entity<ProgramingLanguage>().HasData(programingLanguagesSeeds);
+
+            Technology[] technologiesSeeds = { new(1,1,"ASP.NET"), new(2, 3, "Vue") };
+            modelBuilder.Entity<Technology>().HasData(technologiesSeeds);
 
         }
     }

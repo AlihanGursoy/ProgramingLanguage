@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgramingLanguages.Commands.CreateProgramingLanguages
 {
-    public partial class CreateProgramingLanguageCommand : IRequest<CreatedProgramingLanguageDto>
+    public class CreateProgramingLanguageCommand : IRequest<CreatedProgramingLanguageDto>
     {
         public string Name { get; set; }
 
@@ -35,9 +35,9 @@ namespace Application.Features.ProgramingLanguages.Commands.CreateProgramingLang
 
                 ProgramingLanguage mappedProgramingLanguage = _mapper.Map<ProgramingLanguage>(request);
                 ProgramingLanguage createdProgramingLanguage = await _programingLanguageRepository.AddAsync(mappedProgramingLanguage);
-                CreatedProgramingLanguageDto createdBrandDto = _mapper.Map<CreatedProgramingLanguageDto>(createdProgramingLanguage);
+                CreatedProgramingLanguageDto createdProgramingLanguageDto = _mapper.Map<CreatedProgramingLanguageDto>(createdProgramingLanguage);
 
-                return createdBrandDto;
+                return createdProgramingLanguageDto;
 
             }
         }

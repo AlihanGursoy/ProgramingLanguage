@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.ProgramingLanguages.Commands.UpdateProgramingLanguage
 {
-    public partial class UpdateProgramingLanguageCommand : IRequest<UpdatedProgramingLanguageDto>
+    public class UpdateProgramingLanguageCommand : IRequest<UpdatedProgramingLanguageDto>
     {
         public int Id { get; set; }
         public string Name { get; set; }
